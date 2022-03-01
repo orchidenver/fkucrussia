@@ -292,8 +292,7 @@ section#post-scriptum {
   flex-direction: column;
 }
 
-h1 {
-  font-size: 5vw;
+.home__header {
   text-align: center;
 }
 
@@ -519,16 +518,11 @@ ul {
   text-align: justify;
 }
 
-.blocks__army__header {
-  margin-top: 25px;
-  margin-bottom: 0;
-}
-
 .blocks__army__ul{
   margin-top: 10px;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 414px) {
 
   .fin-support {
     font-size: 0.7rem;
@@ -538,7 +532,7 @@ ul {
     font-size: 1rem;
   }
   .blocks__aid {
-    margin-left: 25px;
+    margin-left: 15px;
   }
 
   .morale__header, .truth__header,
@@ -558,11 +552,19 @@ ul {
   }
 
   .soc {
-    margin-left: 25px;
+    margin-left: 15px;
+  }
+
+  .soc, .media {
+    padding: 10px;
   }
 
   .resource__link {
     font-size: 0.8rem;
+  }
+
+  .self__paragraph {
+    padding: 15px;
   }
 
 }
