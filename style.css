@@ -598,7 +598,7 @@ ul {
   }
 
   .home__header {
-    font-size: 7vw;
+    font-size: 5vw;
   }
 
   .home__para-1, .home__para-2 {
@@ -609,6 +609,77 @@ ul {
   
   .home__para-slava {
     font-size: 1rem;
+  }
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 913px) {
+
+  section {
+    margin: 0;;
+  }
+
+  .fin-support {
+    font-size: 1rem;
+  }
+
+  .resource__link {
+    font-size: 1.5rem;
+  }
+
+  .blocks__aids__header {
+    margin-left: 150px;
+  }
+
+  .blocks__aid {
+    margin-left: 30px;
+  }
+
+  .morale__header, .truth__header,
+  .truth__header {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .morale__link {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .morale__info {
+    font-size: 1rem;
+    max-width: 350px;
+  }
+
+  .soc {
+    margin-left: 30px;
+  }
+
+  .soc, .media {
+    padding: 20px;
+  }
+
+  .resource__link {
+    font-size: 1rem;
+  }
+
+  .self__paragraph {
+    padding: 30px;
+  }
+
+  .home__header {
+    font-size: 7vw;
+    width: 450px;
+  }
+
+  .home__para-1, .home__para-2 {
+    font-size: 1rem;
+    padding: 30px;
+    line-height: 60px;
+  }
+  
+  .home__para-slava {
+    font-size: 1.5rem;
   }
 
 }
