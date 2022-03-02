@@ -427,6 +427,12 @@ button:hover::after {
   }
 }
 
+
+.truth__media, 
+.truth__soc {
+  text-align: center;
+}
+
 .fin-support {
   display: flex;
   flex-direction: column;
@@ -446,6 +452,12 @@ button:hover::after {
 
 .blocks__aids__header {
   margin-left: 450px;
+}
+
+.media__info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
 }
 
 
@@ -522,6 +534,10 @@ ul {
   margin-left: 200px;
 }
 
+.resource {
+  margin-top: 100px;
+}
+
 .resource__link {
   display: inline-block;
   margin-bottom: 20px;
@@ -560,11 +576,19 @@ ul {
     font-size: 1rem;
   }
 
+  .media__info {
+    margin-top: 50px;
+  }
+
   .blocks__aids__header {
     margin-left: 150px;
   }
 
   .blocks__aid {
+    margin-left: 15px;
+  }
+
+  .soc__resource {
     margin-left: 15px;
   }
 
@@ -630,11 +654,19 @@ ul {
     font-size: 1.5rem;
   }
 
+  .media__info {
+    margin-top: 70px;
+  }
+
   .blocks__aids__header {
     margin-left: 150px;
   }
 
   .blocks__aid {
+    margin-left: 30px;
+  }
+
+  .soc__resource {
     margin-left: 30px;
   }
 
