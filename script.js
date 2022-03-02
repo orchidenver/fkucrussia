@@ -2,7 +2,7 @@
 // VARIABLES
 const menuBars = document.querySelector('#menu-bars');
 const overlay = document.querySelector('#overlay');
-const navList = document.querySelectorAll('li');
+const navList = document.querySelectorAll('nav > ul > li');
 const homeHeader = document.querySelector('.home__header'),
       homePara1 = document.querySelector('.home__para-1'),
       homePara2 = document.querySelector('.home__para-2'),
@@ -185,7 +185,7 @@ function toUkr () {
     blocksArmyHeader.textContent = 'Армія';
     blocksAdisHeader.textContent = 'Медикаменти';
     moraleHeader.textContent = 'Грай за Україну';
-    moraleLink.textContent = 'Грай на атакуй Росію';
+    moraleLink.textContent = 'Грай та атакуй Росію';
     moraleInfo.textContent =`Кожен твій хід допомагає атакувати сайти, які використовуються для обслуговування російської армії. Перед початком гри включи VPN, якщо граєш з території України. Ось інструкція як це зробити. Поділись з друзями, нехай теж грають з користю. Навіть якщо ти просто залишиш відкритою цю сторінку на своєму комп'ютері, то атака продовжується.`;
     truthHeader.textContent = 'Слідкуйте за правдою';
     selfHeader.textContent = 'Я - українець';
