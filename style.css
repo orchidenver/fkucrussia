@@ -312,7 +312,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.home__para {
+.home__para-1, .home__para-2 {
   min-width: 300px;
   max-width: 600px;
   text-align: center;
@@ -444,11 +444,20 @@ button:hover::after {
   align-items: center;
 }
 
+.blocks__aids__header {
+  margin-left: 450px;
+}
+
 .blocks__army {
   min-width: 150px;
   max-width: 300px;
   width: 50%;
   /* margin-top: -30px; */
+}
+
+.blocks__headers {
+  display: flex;
+  justify-content: space-between;
 }
 
 .blocks__aid {
@@ -547,6 +556,11 @@ ul {
   .resource__link {
     font-size: 1rem;
   }
+
+  .blocks__aids__header {
+    margin-left: 150px;
+  }
+
   .blocks__aid {
     margin-left: 15px;
   }
@@ -587,7 +601,7 @@ ul {
     font-size: 7vw;
   }
 
-  .home__para {
+  .home__para-1, .home__para-2 {
     font-size: 0.8rem;
     padding: 15px;
     line-height: 30px;
