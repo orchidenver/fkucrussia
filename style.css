@@ -448,10 +448,12 @@ button:hover::after {
   margin-left: 450px;
 }
 
+
 .blocks__army {
   min-width: 150px;
   max-width: 300px;
   width: 50%;
+  text-align: center;
   /* margin-top: -30px; */
 }
 
@@ -465,6 +467,7 @@ button:hover::after {
   max-width: 300px;
   width: 50%;
   margin-left: 200px;
+  text-align: center;
 }
 
 ul {
