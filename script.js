@@ -224,7 +224,7 @@ function toEng () {
     finSupport.textContent = 'Fanancial support';
     boostMorale.textContent = 'Boost morale';
     truthPage.textContent = 'Truth';
-    homeHeader.textContent = 'Russian warship, fuck you!';
+    homeHeader.textContent = 'Russian warship, go fuck yourself!';
     homePara1.textContent = 'This single-page web project was designed in order to help ukrainian goverment to resist and fight russian and belorussian aggression against sovereign Ukraine.';
     homePara2.textContent = 'All the provided links and resources will help you support us financially, as well as obtain the truth about what is really going on in Ukraine.';
     homeParaSlava.textContent = 'SLAVA UKRAINI!';

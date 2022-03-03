@@ -306,6 +306,7 @@ h2 {
 }
 
 h3 {
+  display: inline-block;
   text-align: center;
   margin: 0;
   margin-bottom: 2rem;
@@ -450,9 +451,21 @@ button:hover::after {
   align-items: center;
 }
 
-.blocks__aids__header {
-  margin-left: 450px;
+.blocks__aids__header,
+.blocks__army__header {
+  margin-top: 50px;
 }
+
+
+/* .blocks__aids__header {
+  margin-top: 50px;
+  margin-left: 350px;
+} */
+
+/* .blocks__army__header {
+  margin-top: 40px;
+  margin-right: 50px;
+} */
 
 .media__info {
   display: flex;
@@ -581,7 +594,13 @@ ul {
   }
 
   .blocks__aids__header {
-    margin-left: 150px;
+    margin-top: 40px;
+    /* margin-left: 100px; */
+  }
+
+  .blocks__army__header {
+    margin-top: 40px;
+    /* margin-left: 50px; */
   }
 
   .blocks__aid {
@@ -659,7 +678,7 @@ ul {
   }
 
   .blocks__aids__header {
-    margin-left: 150px;
+    /* margin-left: 150px; */
   }
 
   .blocks__aid {
