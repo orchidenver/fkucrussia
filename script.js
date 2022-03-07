@@ -25,7 +25,9 @@ const homeHeader = document.querySelector('.home__header'),
       blocksArmyPara = document.querySelectorAll('.blocks__army__para'),
       blocksAidPara = document.querySelectorAll('.blocks__aids__para'),
       btnUkr = document.querySelector('.btns__language-ukr'),
-      btnEng = document.querySelector('.btns__language-eng');
+      btnEng = document.querySelector('.btns__language-eng'),
+      moraleJoinHeader = document.querySelector('.morale__joinheader'),
+      moraleJoinPara = document.querySelector('.morale__joinpara');
 
 const supportArray = [
     `SaveLife in UA (Повертайся живим)`,
@@ -49,6 +51,17 @@ const supportArrayEng = [
     `Blood agents Patreon`
 ];
 
+const supportArrayPol = [
+    `SaveLife w UA (Wracaj żywy)`,
+    `Pomoc wojsku`,
+    `Narodowy Bank Ukrainy`,
+    `Pomoc przez Monobank`,
+    `Pomóż Ukrainie z Polski`,
+    `Ukraińscy skauci`,
+    `Pomoc ze Wschodu`,
+    `Agenci krwi Patreon`
+];
+
 const supportSrcArray = [
     `https://savelife.in.ua/donate/`,
     `https://armysos.com.ua/pomoch-armii`,
@@ -63,13 +76,25 @@ const supportSrcArray = [
 const supportSrcArrayEng = [
     `https://savelife.in.ua/en/donate/`,
     `https://armysos.com.ua/en/help-the-army`,
-    `https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi`,
+    `https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi`,
     `https://uahelp.monobank.ua/`,
     `http://helpukraine.center/en`,
     `https://en.plast.org.ua/`,
     `https://vostok-sos.org/en/make-a-donation/?fbclid=IwAR2DNDQiu3CCmK2OwF3Fb4pheq7qtDzzuj_Cnu1RogkxIt5JPaoiKFbmSPA`,
     `https://www.patreon.com/BloodAgents`,
 ];
+
+const supportSrcArrayPol = [
+    `https://savelife.in.ua/en/donate/`,
+    `https://armysos.com.ua/en/help-the-army`,
+    `https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi`,
+    `https://uahelp.monobank.ua/`,
+    `http://helpukraine.center/pl`,
+    `https://en.plast.org.ua/`,
+    `https://vostok-sos.org/en/make-a-donation/?fbclid=IwAR2DNDQiu3CCmK2OwF3Fb4pheq7qtDzzuj_Cnu1RogkxIt5JPaoiKFbmSPA`,
+    `https://www.patreon.com/BloodAgents`,
+];
+
 
 const resourceArray = [
     `Українська правда`,
@@ -87,7 +112,18 @@ const resourceArrayEng = [
     `Novoe vremya`,
     `Babel`,
     `Meduza`,
-    `Telegram Ukraine now`,
+    `Telegram Ukraine now (ENG)`,
+    `Telegram NEXTA`,
+    `Twitter Dmytro Kuleba`,
+    `Facebook MFA of Ukraine`,
+];
+
+const resourceArrayPol = [
+    `Gazeta Pomorska`,
+    `Super Express`,
+    `Polskie Radio`,
+    `Wyborcza.pl`,
+    `Telegram Ukraine now (PL)`,
     `Telegram NEXTA`,
     `Twitter Dmytro Kuleba`,
     `Facebook MFA of Ukraine`,
@@ -109,7 +145,18 @@ const resourceSrcArrayEng = [
     `https://english.nv.ua/`,
     `https://babel.ua/ru/texts/77110-putin-nachal-masshtabnoe-vtorzhenie-v-ukrainu-vzryvy-v-kieve-harkove-odesse-mariupole-i-drugih-gorodah-onlayn-babelya?utm_source=group&utm_medium=telegram`,
     `https://meduza.io/en`,
-    `https://t.me/UkraineNow`,
+    `https://t.me/ukrainenowenglish`,
+    `https://t.me/nexta_live`,
+    `https://twitter.com/DmytroKuleba`,
+    `https://www.facebook.com/UkraineMFA`,
+];
+
+const resourceSrcArrayPol = [
+    `https://pomorska.pl/`,
+    `https://www.se.pl/wojna-na-ukrainie/`,
+    `https://www.polskieradio.pl/395`,
+    `https://wyborcza.pl/0,0.html?disableRedirects=true`,
+    `https://t.me/UkraineNowPoland`,
     `https://t.me/nexta_live`,
     `https://twitter.com/DmytroKuleba`,
     `https://www.facebook.com/UkraineMFA`,
@@ -129,6 +176,13 @@ const blocksArmyParaContentEng = [
     `Donation via Monobank (in UAH)`,
 ];
 
+const blocksArmyParaContentPol = [
+    `Fundusz charytatywny na wsparcie wojska ukraińskiego`,
+    `Darowizna dla Ukraińskiego Wojska`,
+    `Przelew na konto NBU`,
+    `Przelew przez Monobank`,
+];
+
 const blocksAidParaContent = [
     `Гуманітарна допомога з Польщі`,
     `Допомога медикам`,
@@ -141,6 +195,13 @@ const blocksAidParaContentEng = [
     `Donation for medics and defense equipment`,
     `Charing organization since 2014`,
     `Community of blood donors in Ukraine`,
+];
+
+const blocksAidParaContentPol = [
+    `Pomoc humanitarna i medyczna z Polski`,
+    `Darowizna na służby medyczne i broń defensywną`,
+    `Organizacje charytatywne udzielające pomocy od 2014 roku`,
+    `Społeczność dawców krwi w Ukrainie`,
 ];
 
 const currentLang = localStorage.getItem('lang');
@@ -197,6 +258,9 @@ function toUkr () {
     І ми ніколи не здамося. Тому що ми стоїмо за правду.
     За свободу.`;
 
+    moraleJoinHeader.style.display = 'none';
+    moraleJoinPara.style.display = 'none';
+
     finSupportRefs.forEach((el, i) => {
         el.textContent = supportArray[i];
         el.href = supportSrcArray[i];
@@ -245,6 +309,12 @@ function toEng () {
       And we'll never give up. Because we're standing for truth.
       For freedom.`;
 
+      moraleJoinHeader.textContent = 'Join our army (for soldiers from abroad)';
+      moraleJoinPara.innerHTML = '<a class="morale__joinlink"href="https://fightforua.org/" target="_blank">FightforUA.org</a> website, where soldiers from abroad can join Ukraine in fighting Russian invasion, is now online. It contains all the necessary information for thise who want to join Ukrainian International legion.';
+
+    moraleJoinHeader.style.display = 'inline-block';
+    moraleJoinPara.style.display = 'inline-block';
+
     finSupportRefs.forEach((el, i) => {
         el.textContent = supportArrayEng[i];
         el.href = supportSrcArrayEng[i];
@@ -266,10 +336,81 @@ function toEng () {
     localStorage.setItem('lang', 'eng');
 }
 
-localStorage.getItem('lang') === 'ukr' ? toUkr() : toEng();
+function toPol () {
+    // Навігація
+    homePage.textContent = 'Strona główna';
+    finSupport.textContent = 'Wsparcie finansowe';
+    boostMorale.textContent = 'Zwiększ morale';
+    truthPage.textContent = 'Poznaj prawdę';
+    homeHeader.textContent = 'Rosyjski statku, wypierdalaj!';
+    homePara1.textContent = 'Ta jednostronicowa witryna internetowa została stworzona po to, by pomóc ukraińskiemu rządowi w konfrontacji i zwalczaniu rosyjskiej i białoruskiej agresji w stosunku do suwerennej Ukrainy.';
+    homePara2.textContent = 'Wszystkie linki oraz informacje na tej stronie pomogą Państwu wesprzeć nas finansowo, a także dowiedzieć się, co naprawdę dzieje się na Ukrainie.';
+    homeParaSlava.textContent = 'Chwała Ukrainie!';
+    finSupportHeader.textContent = 'WESPRZYJ NAS';
+    blocksArmyHeader.textContent = 'WOJSKO';
+    blocksAdisHeader.textContent = 'LEKI';
+    moraleHeader.textContent = 'GRAJ W DRUŻYNIE UKRAIŃSKIEJ!';
+    moraleLink.textContent = 'GRAJ I ATAKUJ ROSJĘ';
+    moraleInfo.textContent =`Każdy Twój ruch pomaga atakować strony internetowe, służące armii rosyjskiej.
+    Przed rozpoczęciem gry włącz VPN, jeśli grasz z terytorium Ukrainy. Przekaż znajomym, by też zagrali. Wystarczy że nie zamkniesz strony, a atak będzie w dalszym ciągu kontynuowany.`;
+    truthHeader.textContent = 'PODĄŻAJ ZA PRAWDĄ';
+    selfHeader.textContent = 'JESTEM UKRAIŃCEM!';
+    selfPara.textContent = `Jestem dumny z wielu rzeczy, które są na Ukrainie. Ale jest jedna bardzo ważna cecha, która nas wyróżnia - wolność. Sowieci próbowali nas zdusić, ale bezskutecznie. Janukowicz próbował nas zdusić, ale bezskutecznie. Putin próbuje nas zniszczyć od 2014 roku, a my wciąż żyjemy. Walczymy i nigdy się nie poddamy, ponieważ walczymy o naszą wolność!`;
+    moraleJoinHeader.textContent = 'DOŁĄCZ DO NASZEJ ARMII (DLA ŻOŁNIERZY Z ZAGRANICY)';
+    moraleJoinPara.textContent = 'Strona FightforUA.org, na której żołnierze z zagranicy mogą dołączyć do Ukrainy w walce z rosyjską inwazją, jest już online. Zawiera wszystkie niezbędne informacje dla tych, którzy chcą wstąpić do ukraińskiego międzynarodowego legionu.';
+    moraleJoinPara.innerHTML = 'Strona <a class="morale__joinlink"href="https://fightforua.org/" target="_blank">FightforUA.org</a>, na której żołnierze z zagranicy mogą dołączyć do Ukrainy w walce z rosyjską inwazją, jest już online. Zawiera wszystkie niezbędne informacje dla tych, którzy chcą wstąpić do ukraińskiego międzynarodowego legionu.';
+
+    moraleJoinHeader.style.display = 'inline-block';
+    moraleJoinPara.style.display = 'inline-block';
+    
+    finSupportRefs.forEach((el, i) => {
+        el.textContent = supportArrayPol[i];
+        el.href = supportSrcArrayPol[i];
+    });
+
+    resourceLink.forEach((el, i) => {
+        el.textContent = resourceArrayPol[i];
+        el.href = resourceSrcArrayPol[i];
+    });
+
+    blocksArmyPara.forEach((el, i) => {
+        el.textContent = blocksArmyParaContentPol[i];
+    });
+
+    blocksAidPara.forEach((el, i) => {
+        el.textContent = blocksAidParaContentPol[i];
+    });
+
+    localStorage.setItem('lang', 'pol');
+}
+
+if (localStorage.getItem('lang') === 'ukr') toUkr();
+
+if (localStorage.getItem('lang') === 'eng') toEng();
+
+if (localStorage.getItem('lang') === 'pol') toPol();
 
 // Event listeners
 menuBars.addEventListener('click', toggleNav);
 navList.forEach(navEl => navEl.addEventListener('click', toggleNav));
-btnUkr.addEventListener('click', toUkr);
-btnEng.addEventListener('click', toEng);
+// btnUkr.addEventListener('click', toUkr);
+// btnEng.addEventListener('click', toEng);
+
+document.querySelector('select').addEventListener('change', (e) => {
+    
+    if (e.target.value === 'eng') {
+        toEng();
+        console.log('ddd');
+    } else if (e.target.value === 'ukr') {
+        toUkr();
+        console.log('ddd');
+    } else if (e.target.value === 'pol') {
+        toPol();
+        console.log('ddd');
+    } else {
+        return;
+    }
+    // if (document.querySelector('input').value === 'eng') toEng();
+    // if (document.querySelector('input').value === 'ukr') toUkr();
+    // if (document.querySelector('input').value === 'pol') toPol();
+});

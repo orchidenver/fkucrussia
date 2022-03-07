@@ -22,7 +22,8 @@ html {
 body {
   margin: 0;
   background: #000;
-  font-family: 'Lora', sans-serif;}
+  font-family: 'Lora', sans-serif;
+}
 
 /* --- Navigation Menu ------------------------------ */
 
@@ -197,6 +198,86 @@ nav li:nth-of-type(5) {
   cursor: pointer;
 }
 
+.select {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 5;
+  cursor: pointer;
+  width:100px;
+  height:40px;
+  background-color: rgb(44, 44, 44);
+  color: var(--primaryColor);
+  border-radius: 5px;
+  border: none;
+}
+
+.option {
+  padding:0 30px 0 10px;
+  min-height:40px;
+  display:flex;
+  align-items:center;
+  background:#333;
+  border-top:#222 solid 1px;
+  position:absolute;
+  top:0;
+  width: 100%;
+  pointer-events:none;
+  order:2;
+  z-index:1;
+  transition:background .4s ease-in-out;
+  box-sizing:border-box;
+  overflow:hidden;
+  white-space:nowrap;
+  
+}
+
+.option:hover {
+  background:#666;
+}
+
+.select:focus .option {
+  position:relative;
+  pointer-events:all;
+}
+
+input {
+  opacity:0;
+  position:absolute;
+  left:-99999px;
+}
+
+input:checked + label {
+  order: 1;
+  z-index:2;
+  background:#666;
+  border-top:none;
+  position:relative;
+}
+
+input:checked + label:after {
+  content:'';
+  width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid white;
+  position:absolute;
+  right:10px;
+  top:calc(50% - 2.5px);
+  pointer-events:none;
+  z-index:3;
+}
+
+input:checked + label:before {
+  position:absolute;
+  right:0;
+  height: 40px;
+  width: 40px;
+  content: '';
+  background:#666;
+}
+
 .bar1,
 .bar2,
 .bar3 {
@@ -298,9 +379,9 @@ section#post-scriptum {
 .home__header {
   font-size: 5vw;
   text-align: center;
-  margin-bottom: 0;
   text-transform: uppercase;
 }
+
 h2 {
   text-transform: uppercase;
 }
@@ -317,19 +398,15 @@ h3 {
   min-width: 300px;
   max-width: 600px;
   text-align: center;
+  margin: 0;
+  margin: 15px 0 15px 0;
 }
 
 .home__para-slava {
   font-size: 1.5rem;
+  margin: 0;
 }
 
-.btns__language {
-  margin-top: 20px;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 button + button {
   margin-left: 5rem;
@@ -456,17 +533,6 @@ button:hover::after {
   margin-top: 50px;
 }
 
-
-/* .blocks__aids__header {
-  margin-top: 50px;
-  margin-left: 350px;
-} */
-
-/* .blocks__army__header {
-  margin-top: 40px;
-  margin-right: 50px;
-} */
-
 .media__info {
   display: flex;
   justify-content: space-between;
@@ -501,12 +567,14 @@ ul {
   margin: 0;
 }
 
-.support {
+.support,
+.morale__joinlink {
   text-decoration: none;
   color: var(--col-support);
 }
 
-.support:hover {
+.support:hover,
+.morale__joinlink:hover {
   background: var(--col-support-hov-yel);
   background: linear-gradient(0deg, var(--col-support-hov-yel) 36%, var(--col-support-hov-blue) 100%);
 }
@@ -529,10 +597,11 @@ ul {
   background: linear-gradient(0deg, var(--col-support-hov-yel) 36%, var(--col-support-hov-blue) 100%);
 }
 
-.morale__info {
+.morale__info, .morale__joinpara {
   max-width: 600px;
   text-align: center;
 }
+
 
 #truth {
   display: flex;
@@ -579,6 +648,7 @@ ul {
   margin-top: 10px;
 }
 
+
 @media screen and (max-width: 415px) {
 
   .fin-support {
@@ -612,7 +682,7 @@ ul {
   }
 
   .morale__header, .truth__header,
-  .truth__header {
+  .truth__header, .morale__joinheader {
     font-size: 1.5rem;
     text-align: center;
   }
@@ -622,7 +692,8 @@ ul {
     text-align: center;
   }
 
-  .morale__info {
+  .morale__info,
+  .morale__joinpara {
     font-size: 0.8rem;
     max-width: 300px;
   }
@@ -651,6 +722,7 @@ ul {
     font-size: 0.8rem;
     padding: 15px;
     line-height: 30px;
+    margin: 0;
   }
   
   .home__para-slava {
@@ -690,9 +762,10 @@ ul {
   }
 
   .morale__header, .truth__header,
-  .truth__header {
+  .truth__header, .morale__joinheader {
     font-size: 2rem;
     text-align: center;
+    max-width: 600px;
   }
 
   .morale__link {
@@ -700,7 +773,8 @@ ul {
     text-align: center;
   }
 
-  .morale__info {
+  .morale__info,
+  .morale__joinpara {
     font-size: 1rem;
     max-width: 350px;
   }
@@ -730,6 +804,8 @@ ul {
     font-size: 1rem;
     padding: 30px;
     line-height: 60px;
+    margin: 0;
+    line-height: 1.5rem;
   }
   
   .home__para-slava {
