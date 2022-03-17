@@ -6,6 +6,9 @@
   <title>HELP UKRAINE</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-slider.css">
+  <script defer src="slider.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <!-- Menu overlay -->
@@ -66,7 +69,7 @@
           <p class="blocks__army__para">Donation for the Ukrainian Army
           </p>
           </li>
-          <li><a class="support" href="https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi" target="_blank">
+          <li><a class="support" href="https://helpua.bank.gov.ua/" target="_blank">
             National Bank of Ukraine
           </a>
           <p class="blocks__army__para">Support Ukrainian National Bank</p>
@@ -106,8 +109,52 @@
       </div>
     </div>
   </section>
-  <section id="boost-morale" class="morale" ><h2 class="morale__header">Play for Ukraine</h2>
-  <a class="morale__link" href="https://playforukraine.live/" >
+  <section id="boost-morale" class="morale fade" >
+    <h2 class="morale__header">Fight with us</h2>
+    <div class="morale__controls">
+      <button aria-label="previous slide" class="slider__prev"> < </button>
+      <button aria-label="next slide" class="slider__next"> > </button>
+    </div>
+    <div class="morale__body"></div>
+    <!-- <div class="morale__block block">
+      <div class="block__header">
+        <h3><a class="block__link" href="https://playforukraine.live/" >
+          Play for Ukraine
+        </a></h3>
+      </div>
+      <div class="block__info">
+        <p>
+          When playing your every move helps to attack the websites used to serve the Russian army. Before starting the game, turn on the VPN if you play from the territory of Ukraine. There are instructions on how to do it. Share with friends, let them play and do good too. Even if you just leave this page open on your computer, the attack continues.
+        </p>
+      </div>
+    </div>
+    <div class="morale__block block">
+      <div class="block__header">
+        <h3>
+          <a class="block__link" href="https://fightforua.org/" target="_blank">
+            Join our army
+          </a>
+          </h3>
+      </div>
+      <div class="block__info">
+        <p>
+          FightforUA.org website, where soldiers from abroad can join Ukraine in fighting Russian invasion, is now online. It contains all the necessary information for thise who want to join Ukrainian International legion.
+        </p>
+      </div>
+    </div>
+    <div class="morale__block block">
+      <div class="block__header">
+        <h3>
+          <a class="block__link" href="https://help-ukraine-win.com/" target="_blank">
+            Join cyber-army
+          </a>
+          </h3>
+      </div>
+      <div class="block__info">
+        <p>All Ukrainian people fight against Russian aggression to defend their motherland. You probably heard about it, and you can help us from your home right now.</p>
+      </div>
+    </div> -->
+    <!-- <a class="morale__link" href="https://playforukraine.live/" >
     play and attack russia
   </a>
   <p class="morale__info">
@@ -116,7 +163,7 @@
   <h2 class="morale__joinheader">Join our army (for soldiers from abroad)</h2>
   <p class="morale__joinpara">
     <a class="morale__joinlink"href="https://fightforua.org/" target="_blank">FightforUA.org</a> website, where soldiers from abroad can join Ukraine in fighting Russian invasion, is now online. It contains all the necessary information for thise who want to join Ukrainian International legion.
-  </p>
+  </p> -->
   </section>
   <section id="truth" class="truth">
     <h2 class="truth__header">Follow the truth and find out more</h2>
@@ -154,8 +201,6 @@
       For freedom.
     </p>
   </section>
-  <!-- Script -->
-  <script src="script.js"></script>
 </body>
 </html>
 

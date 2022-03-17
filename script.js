@@ -27,7 +27,10 @@ const homeHeader = document.querySelector('.home__header'),
       btnUkr = document.querySelector('.btns__language-ukr'),
       btnEng = document.querySelector('.btns__language-eng'),
       moraleJoinHeader = document.querySelector('.morale__joinheader'),
-      moraleJoinPara = document.querySelector('.morale__joinpara');
+      moraleJoinPara = document.querySelector('.morale__joinpara'),
+      moraleBlockLink = document.querySelector('.block__link'),
+      moraleBlockInfo = document.querySelector('.block__info'),
+      moraleBlock = document.querySelector('#boost-morale');
 
 const supportArray = [
     `SaveLife in UA (Повертайся живим)`,
@@ -204,6 +207,61 @@ const blocksAidParaContentPol = [
     `Społeczność dawców krwi w Ukrainie`,
 ];
 
+const cardContentPlayEng = [
+    `https://playforukraine.live/`,
+    `Play for Ukraine`,
+    `When playing your every move helps to attack the websites used to serve the Russian army. Before starting the game, turn on the VPN if you play from the territory of Ukraine. There are instructions on how to do it. Share with friends, let them play and do good too. Even if you just leave this page open on your computer, the attack continues.`,
+];
+
+const cardContentLegionEng = [
+    `https://fightforua.org/`,
+    `Join our army`,
+    `FightforUA.org website, where soldiers from abroad can join Ukraine in fighting Russian invasion, is now online. It contains all the necessary information for thise who want to join Ukrainian International legion.`,
+];
+
+const cardContentCyberEng = [
+    `https://help-ukraine-win.com/`,
+    `Join cyber-army`,
+    `All Ukrainian people fight against Russian aggression to defend their motherland. You probably heard about it, and you can help us from your home right now.`,
+];
+
+const cardContentPlayUkr = [
+    `https://playforukraine.live/`,
+    `ГРАЙ ЗА УКРАЇНУ`,
+    `Кожен твій хід допомагає атакувати сайти, які використовуються для обслуговування російської армії. Перед початком гри включи VPN, якщо граєш з території України. Ось інструкція як це зробити. Поділись з друзями, нехай теж грають з користю. Навіть якщо ти просто залишиш відкритою цю сторінку на своєму комп'ютері, то атака продовжується.`,
+];
+
+const cardContentLegionUkr = [
+    `https://fightforua.org/`,
+    `Приєднуйся до армії`,
+    `FightforUA.org website, where soldiers from abroad can join Ukraine in fighting Russian invasion, is now online. It contains all the necessary information for those who want to join Ukrainian International legion.`,
+];
+
+const cardContentCyberUkr = [
+    `https://help-ukraine-win.com/`,
+    `Наш кібер-легіон`,
+    `Система волонтерської кібероборони України створили програму для допомоги в боротьбі у інформаційній війні.`,
+];
+
+const cardContentPlayPol = [
+    `https://playforukraine.live/`,
+    `GRAJ W DRUŻYNIE UKRAIŃSKIEJ!`,
+    `Każdy Twój ruch pomaga atakować strony internetowe, służące armii rosyjskiej.
+    // Przed rozpoczęciem gry włącz VPN, jeśli grasz z terytorium Ukrainy. Przekaż znajomym, by też zagrali. Wystarczy że nie zamkniesz strony, a atak będzie w dalszym ciągu kontynuowany.`,
+];
+
+const cardContentLegionPol = [
+    `https://fightforua.org/`,
+    `Dołącz do naszej armii`,
+    `FightforUA.org strona internetowa, na której żołnierze z zagranicy mogą dołączyć do Ukrainy w walce z rosyjską inwazją, jest już online. Zawiera wszystkie niezbędne informacje dla tych, którzy chcą wstąpić do ukraińskiego międzynarodowego legionu.`,
+];
+
+const cardContentCyberPol = [
+    `https://help-ukraine-win.com/`,
+    `Dołącz do cyber-armii`,
+    `Wszyscy Ukraińcy walczą z rosyjską agresją w obronie swojej ojczyzny. Zapewne słyszałeś o tym i możesz nam pomóc już teraz z domu.`,
+];
+
 const currentLang = localStorage.getItem('lang');
 
 // FUNCTIONS
@@ -232,6 +290,32 @@ function toggleNav () {
 
 /* Language functions */
 
+class FightWithUsCards {
+    constructor(hrefContent, headerContent, paraContent, parentEl) {
+        this.href = hrefContent;
+        this.header = headerContent;
+        this.paragraph = paraContent;
+        this.parent = document.querySelector(parentEl);
+    }
+
+    renderCard() {
+        this.parent.insertAdjacentHTML('beforeend', `
+        <div class="morale__block block">
+            <div class="block__header">
+                <h3><a class="block__link" href="${this.href}" >
+                    ${this.header}
+                </a></h3>
+            </div>
+            <div class="block__info">
+                <p>
+                    ${this.paragraph}
+                </p>
+            </div>
+        </div>
+        `);
+    }
+}
+
 function toUkr () {
     // Навігація
     homePage.textContent = 'Додому';
@@ -245,9 +329,9 @@ function toUkr () {
     finSupportHeader.textContent = 'Підтримай нас';
     blocksArmyHeader.textContent = 'Армія';
     blocksAdisHeader.textContent = 'Медикаменти';
-    moraleHeader.textContent = 'Грай за Україну';
-    moraleLink.textContent = 'Грай та атакуй Росію';
-    moraleInfo.textContent =`Кожен твій хід допомагає атакувати сайти, які використовуються для обслуговування російської армії. Перед початком гри включи VPN, якщо граєш з території України. Ось інструкція як це зробити. Поділись з друзями, нехай теж грають з користю. Навіть якщо ти просто залишиш відкритою цю сторінку на своєму комп'ютері, то атака продовжується.`;
+    moraleHeader.textContent = 'Борися за нас';
+    // moraleLink.textContent = 'Грай та атакуй Росію';
+    // moraleInfo.textContent =`Кожен твій хід допомагає атакувати сайти, які використовуються для обслуговування російської армії. Перед початком гри включи VPN, якщо граєш з території України. Ось інструкція як це зробити. Поділись з друзями, нехай теж грають з користю. Навіть якщо ти просто залишиш відкритою цю сторінку на своєму комп'ютері, то атака продовжується.`;
     truthHeader.textContent = 'Слідкуйте за правдою';
     selfHeader.textContent = 'Я - українець';
     selfPara.textContent = `В Україні є багато речей, якими я пишаюся. Але є одна річ, яка яскраво виділяється – це свобода.
@@ -258,8 +342,8 @@ function toUkr () {
     І ми ніколи не здамося. Тому що ми стоїмо за правду.
     За свободу.`;
 
-    moraleJoinHeader.style.display = 'none';
-    moraleJoinPara.style.display = 'none';
+    // moraleJoinHeader.style.display = 'none';
+    // moraleJoinPara.style.display = 'none';
 
     finSupportRefs.forEach((el, i) => {
         el.textContent = supportArray[i];
@@ -279,6 +363,22 @@ function toUkr () {
         el.textContent = blocksAidParaContent[i];
     });
 
+    moraleBlock.innerHTML = `<h2 class="morale__header">${moraleHeader.textContent}</h2>`;
+
+    new FightWithUsCards(
+        cardContentPlayUkr[0], 
+        cardContentPlayUkr[1],
+        cardContentPlayUkr[2],
+        '#boost-morale',
+    ).renderCard();
+    
+    new FightWithUsCards(
+        cardContentCyberUkr[0], 
+        cardContentCyberUkr[1],
+        cardContentCyberUkr[2],
+        '#boost-morale',
+    ).renderCard();
+
     localStorage.setItem('lang', 'ukr');
 }
 
@@ -295,10 +395,10 @@ function toEng () {
     finSupportHeader.textContent = 'Support us';
     blocksArmyHeader.textContent = 'Army';
     blocksAdisHeader.textContent = 'Aids';
-    moraleHeader.textContent = 'Play for Ukraine';
-    moraleLink.textContent = 'Play and attack Russia';
-    moraleInfo.textContent =`When playing your every move helps to attack the websites used to serve the Russian army. Before starting the game, turn on the VPN if you play from the territory of Ukraine. There are instructions on how to do it. Share with friends, let them play and do good too. Even if you just leave this page open on your computer, the attack continues.
-    `;
+    moraleHeader.textContent = 'Fight for us';
+    // moraleLink.textContent = 'Play and attack Russia';
+    // moraleInfo.textContent =`When playing your every move helps to attack the websites used to serve the Russian army. Before starting the game, turn on the VPN if you play from the territory of Ukraine. There are instructions on how to do it. Share with friends, let them play and do good too. Even if you just leave this page open on your computer, the attack continues.
+    // `;
     truthHeader.textContent = 'Follow the truth and find out more';
     selfHeader.textContent = 'Ukrainian me';
     selfPara.textContent = `There are a lot of things in Ukraine that I'm proud of. But there is one thing that stands out vividly - it's freedom.
@@ -309,11 +409,11 @@ function toEng () {
       And we'll never give up. Because we're standing for truth.
       For freedom.`;
 
-      moraleJoinHeader.textContent = 'Join our army (for soldiers from abroad)';
-      moraleJoinPara.innerHTML = '<a class="morale__joinlink"href="https://fightforua.org/" target="_blank">FightforUA.org</a> website, where soldiers from abroad can join Ukraine in fighting Russian invasion, is now online. It contains all the necessary information for thise who want to join Ukrainian International legion.';
+    //   moraleJoinHeader.textContent = 'Join our army (for soldiers from abroad)';
+    //   moraleJoinPara.innerHTML = '<a class="morale__joinlink"href="https://fightforua.org/" target="_blank">FightforUA.org</a> website, where soldiers from abroad can join Ukraine in fighting Russian invasion, is now online. It contains all the necessary information for thise who want to join Ukrainian International legion.';
 
-    moraleJoinHeader.style.display = 'inline-block';
-    moraleJoinPara.style.display = 'inline-block';
+    // moraleJoinHeader.style.display = 'inline-block';
+    // moraleJoinPara.style.display = 'inline-block';
 
     finSupportRefs.forEach((el, i) => {
         el.textContent = supportArrayEng[i];
@@ -333,6 +433,29 @@ function toEng () {
         el.textContent = blocksAidParaContentEng[i];
     });
 
+    moraleBlock.innerHTML = `<h2 class="morale__header">${moraleHeader.textContent}</h2>`;
+
+    new FightWithUsCards(
+        cardContentPlayEng[0], 
+        cardContentPlayEng[1],
+        cardContentPlayEng[2],
+        '#boost-morale',
+    ).renderCard();
+    
+    new FightWithUsCards(
+        cardContentLegionEng[0], 
+        cardContentLegionEng[1],
+        cardContentLegionEng[2],
+        '#boost-morale',
+    ).renderCard();
+    
+    new FightWithUsCards(
+        cardContentCyberEng[0], 
+        cardContentCyberEng[1],
+        cardContentCyberEng[2],
+        '#boost-morale',
+    ).renderCard();
+
     localStorage.setItem('lang', 'eng');
 }
 
@@ -349,19 +472,19 @@ function toPol () {
     finSupportHeader.textContent = 'WESPRZYJ NAS';
     blocksArmyHeader.textContent = 'WOJSKO';
     blocksAdisHeader.textContent = 'LEKI';
-    moraleHeader.textContent = 'GRAJ W DRUŻYNIE UKRAIŃSKIEJ!';
-    moraleLink.textContent = 'GRAJ I ATAKUJ ROSJĘ';
-    moraleInfo.textContent =`Każdy Twój ruch pomaga atakować strony internetowe, służące armii rosyjskiej.
-    Przed rozpoczęciem gry włącz VPN, jeśli grasz z terytorium Ukrainy. Przekaż znajomym, by też zagrali. Wystarczy że nie zamkniesz strony, a atak będzie w dalszym ciągu kontynuowany.`;
+    moraleHeader.textContent = 'WALCZ Z NAMI';
+    // moraleLink.textContent = 'GRAJ I ATAKUJ ROSJĘ';
+    // moraleInfo.textContent =`Każdy Twój ruch pomaga atakować strony internetowe, służące armii rosyjskiej.
+    // Przed rozpoczęciem gry włącz VPN, jeśli grasz z terytorium Ukrainy. Przekaż znajomym, by też zagrali. Wystarczy że nie zamkniesz strony, a atak będzie w dalszym ciągu kontynuowany.`;
     truthHeader.textContent = 'PODĄŻAJ ZA PRAWDĄ';
     selfHeader.textContent = 'JESTEM UKRAIŃCEM!';
     selfPara.textContent = `Jestem dumny z wielu rzeczy, które są na Ukrainie. Ale jest jedna bardzo ważna cecha, która nas wyróżnia - wolność. Sowieci próbowali nas zdusić, ale bezskutecznie. Janukowicz próbował nas zdusić, ale bezskutecznie. Putin próbuje nas zniszczyć od 2014 roku, a my wciąż żyjemy. Walczymy i nigdy się nie poddamy, ponieważ walczymy o naszą wolność!`;
-    moraleJoinHeader.textContent = 'DOŁĄCZ DO NASZEJ ARMII (DLA ŻOŁNIERZY Z ZAGRANICY)';
-    moraleJoinPara.textContent = 'Strona FightforUA.org, na której żołnierze z zagranicy mogą dołączyć do Ukrainy w walce z rosyjską inwazją, jest już online. Zawiera wszystkie niezbędne informacje dla tych, którzy chcą wstąpić do ukraińskiego międzynarodowego legionu.';
-    moraleJoinPara.innerHTML = 'Strona <a class="morale__joinlink"href="https://fightforua.org/" target="_blank">FightforUA.org</a>, na której żołnierze z zagranicy mogą dołączyć do Ukrainy w walce z rosyjską inwazją, jest już online. Zawiera wszystkie niezbędne informacje dla tych, którzy chcą wstąpić do ukraińskiego międzynarodowego legionu.';
+    // moraleJoinHeader.textContent = 'DOŁĄCZ DO NASZEJ ARMII (DLA ŻOŁNIERZY Z ZAGRANICY)';
+    // moraleJoinPara.textContent = 'Strona FightforUA.org, na której żołnierze z zagranicy mogą dołączyć do Ukrainy w walce z rosyjską inwazją, jest już online. Zawiera wszystkie niezbędne informacje dla tych, którzy chcą wstąpić do ukraińskiego międzynarodowego legionu.';
+    // moraleJoinPara.innerHTML = 'Strona <a class="morale__joinlink"href="https://fightforua.org/" target="_blank">FightforUA.org</a>, na której żołnierze z zagranicy mogą dołączyć do Ukrainy w walce z rosyjską inwazją, jest już online. Zawiera wszystkie niezbędne informacje dla tych, którzy chcą wstąpić do ukraińskiego międzynarodowego legionu.';
 
-    moraleJoinHeader.style.display = 'inline-block';
-    moraleJoinPara.style.display = 'inline-block';
+    // moraleJoinHeader.style.display = 'inline-block';
+    // moraleJoinPara.style.display = 'inline-block';
     
     finSupportRefs.forEach((el, i) => {
         el.textContent = supportArrayPol[i];
@@ -381,6 +504,35 @@ function toPol () {
         el.textContent = blocksAidParaContentPol[i];
     });
 
+    moraleBlock.innerHTML = `<h2 class="morale__header">${moraleHeader.textContent}</h2>
+    <div class="morale__body"></div>
+    <div class="morale__controls">
+      <button aria-label="previous slide" class="slider__prev"> < </button>
+      <button aria-label="next slide" class="slider__next"> > </button>
+    </div>
+    `;
+
+    new FightWithUsCards(
+        cardContentPlayPol[0], 
+        cardContentPlayPol[1],
+        cardContentPlayPol[2],
+        '.morale__body',
+    ).renderCard();
+    
+    new FightWithUsCards(
+        cardContentLegionPol[0], 
+        cardContentLegionPol[1],
+        cardContentLegionPol[2],
+        '.morale__body',
+    ).renderCard();
+    
+    new FightWithUsCards(
+        cardContentCyberPol[0], 
+        cardContentCyberPol[1],
+        cardContentCyberPol[2],
+        '.morale__body',
+    ).renderCard();
+
     localStorage.setItem('lang', 'pol');
 }
 
@@ -389,6 +541,7 @@ if (localStorage.getItem('lang') === 'ukr') toUkr();
 if (localStorage.getItem('lang') === 'eng') toEng();
 
 if (localStorage.getItem('lang') === 'pol') toPol();
+
 
 // Event listeners
 menuBars.addEventListener('click', toggleNav);

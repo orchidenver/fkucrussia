@@ -579,10 +579,9 @@ ul {
   background: linear-gradient(0deg, var(--col-support-hov-yel) 36%, var(--col-support-hov-blue) 100%);
 }
 
-#boost-morale {
+.morale__body {
   display: flex;
-  flex-direction: column;
-  min-width: 300px;
+  justify-content: space-around;
 }
 
 .morale__link {
@@ -646,6 +645,50 @@ ul {
 
 .blocks__army__ul{
   margin-top: 10px;
+}
+
+.block {
+  max-width: 20%;
+  min-width: 300px;
+  height: 50%;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin: 1%;
+  padding: 2%;
+}
+
+.morale__header {
+  position: absolute;
+  top:7%;
+}
+
+.block__header h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block__header {
+  height: 25%;
+}
+
+.block__link {
+  text-decoration: none;
+  color: var(--col-support);
+}
+
+.block__link:hover {
+  background: var(--col-support-hov-yel);
+  background: linear-gradient(0deg, var(--col-support-hov-yel) 36%, var(--col-support-hov-blue) 100%);
+}
+
+.block__info a {
+  text-decoration: none;
+  color: var(--col-support);
+}
+
+.block__info p {
+  text-align: center;
 }
 
 
@@ -812,4 +855,69 @@ ul {
     font-size: 1.5rem;
   }
 
+}
+
+@media screen and (max-width: 820px) {
+
+  #boost-morale {
+    display: flex;
+    justify-content: center;
+  }
+
+  .block {
+    max-width: 20%;
+    min-width: 200px;
+    height: 40%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 1%;
+  }
+  
+
+  .block__header {
+    height: 15%;
+  }
+
+  .block__header {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+  }
+
+  .block__header h3 {
+    margin: 0;
+  }
+
+}
+
+@media screen and (min-width: 821px) and (max-width: 1024px) {
+
+  #boost-morale {
+    display: flex;
+    justify-content: center;
+  }
+
+  .block {
+    max-width: 25%;
+    min-width: 250px;
+    height: 50%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 1%;
+  }
+  
+
+  .block__header {
+    height: 15%;
+  }
+
+  .block__header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .block__header h3 {
+    margin: 0;
+  }
 }
